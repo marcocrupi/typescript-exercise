@@ -8,7 +8,7 @@ STEP:
 
 * The phoneNumber variable is meant to be able to store non-numeric characters (for compatibility with international phone numbers). Add a type declaration to inform TypeScript that it should be a string.
 * Use the tsc command to check the file for type errors.
-* Error! It looks like one of the values assigned to phoneNumber isn’t valid. Fix that value per TypeScript’s type complaints. (And notice that the randomness introduced by Math.random() has no impact on whether TypeScript finds the type error.)
+* Error! It looks like one of the values assigned to phoneNumber isn’t valid. Fix that value per TypeScript’s type complaints (And notice that the randomness introduced by Math.random() has no impact on whether TypeScript finds the type error).
 
 ```ts
 // let phoneNumber;
@@ -26,4 +26,35 @@ if (Math.random() > 0.5) {
 } else {
   phoneNumber = "7167762323";
 }
+```
+
+## 02 - FUNCTIONS: Parameter Type Annotations
+
+STEP:
+
+* The triple() function is meant to multiply a value by three. Add a type annotation to the value parameter to indicate that it’s meant to be a number.
+* greetTripled() is meant to take in a string and a number. Add type annotations to its type parameters as well.
+* Everything seems to look good. Let’s quickly compile our code and move on to the next exercise. To do this, simply run tsc in the terminal.
+* Woah! TypeScript found a bug, thanks to our type annotations. It looks like greetTripled() is being called with the wrong types of arguments. Fix the code to print Hiya, 15!.
+
+```ts
+// function triple(value) {
+//   return value * 3;
+// }
+
+// function greetTripled(greeting, value) {
+//   console.log(`${greeting}, ${triple(value)}!`);
+// }
+
+// greetTripled(5, "Hiya");
+
+function triple(value: number) {
+  return value * 3;
+}
+
+function greetTripled(greeting: string, value: number) {
+  console.log(`${greeting}, ${triple(value)}!`);
+}
+
+greetTripled("Hiya", 5);
 ```
