@@ -2,7 +2,7 @@
 
 Typescript exercises that I solved.
 
-## Variable Type Annotations
+## 01 - Variable Type Annotations
 
 STEP:
 
