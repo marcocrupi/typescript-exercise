@@ -58,3 +58,27 @@ function greetTripled(greeting: string, value: number) {
 
 greetTripled("Hiya", 5);
 ```
+
+## 03 - FUNCTIONS: Optional Parameters
+
+Our proclaim() method is meant to default to printing 'I'm not ready...' when called without arguments. Mark its status parameter as optional.
+
+Afterwards, feel free to run tsc in the terminal to verify that there are no errors.
+
+```ts
+// function proclaim(status: string) {
+//   console.log(`I'm ${status || "not ready..."}`);
+// }
+
+// proclaim();
+// proclaim("ready?");
+// proclaim("ready!");
+
+function proclaim(status?: string) {
+  console.log(`I'm ${status || "not ready..."}`);
+}
+
+proclaim();
+proclaim("ready?");
+proclaim("ready!");
+```
