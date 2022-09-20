@@ -1,4 +1,4 @@
-# 03 - FUNCTIONS: Parameter Type Annotations
+# 03 - FUNCTIONS: Optional Parameters
 
 Our proclaim() method is meant to default to printing 'I'm not ready...' when called without arguments. Mark its status parameter as optional.
 
