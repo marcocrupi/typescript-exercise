@@ -131,3 +131,24 @@ function getRandomNumber() {
 
 const myVar = getRandomNumber();
 ```
+
+## 06 - FUNCTIONS: Void Return Type
+
+* Use TypeScript to check this fruit salad code for type errors.
+* It looks like the type annotation for the return type of makeFruitSalad() isn’t quite right. Please correct this!
+
+```ts
+// function makeFruitSalad(fruit1: string, fruit2: string): string {
+//   let salad = fruit1 + fruit2 + fruit2 + fruit1 + fruit2 + fruit1 + fruit1;
+//   console.log(salad);
+// }
+
+// makeFruitSalad("banana", "pineapple");
+
+function makeFruitSalad(fruit1: string, fruit2: string): void {
+  let salad = fruit1 + fruit2 + fruit2 + fruit1 + fruit2 + fruit1 + fruit1;
+  console.log(salad);
+}
+
+makeFruitSalad("banana", "pineapple");
+```
