@@ -358,3 +358,58 @@ function addPower(p: number, ...numsToAdd: number[]): number {
 
 addPower("a string", 4, 5, 6);
 ```
+
+## 13 - ARRAYS: Spread Syntax
+
+STEP:
+
+* An array of tuples could be a convenient way to store the arguments for many recurring function calls. In the code editor, we have defined the array danceMoves, every element of which is a tuple that contains arguments for the performDanceMove() function. Please provide a type annotation for the danceMoves array that will ensure compatibility with the performDanceMove() function.
+* Perform the whole dance from start to finish by looping over the danceMoves array in whatever way you like, but make sure to use JavaScript’s spread syntax within performDanceMove(). It’s time to see the results of the dance! Run tsc to transpile the code to JavaScript and then run it with node index.js.
+
+```ts
+// function performDanceMove(
+//   moveName: string,
+//   moveReps: number,
+//   hasFlair: boolean
+// ): void {
+//   console.log(`I do the ${moveName} ${moveReps} times !`);
+//   if (hasFlair) {
+//     console.log("I do it with flair!");
+//   }
+// }
+
+// let danceMoves = [
+//   ["chicken beak", 4, false],
+//   ["wing flap", 4, false],
+//   ["tail feather shake", 4, false],
+//   ["clap", 4, false],
+//   ["chicken beak", 4, true],
+//   ["wing flap", 4, true],
+//   ["tail feather shake", 4, true],
+//   ["clap", 4, true],
+// ];
+
+function performDanceMove(
+  moveName: string,
+  moveReps: number,
+  hasFlair: boolean
+): void {
+  console.log(`I do the ${moveName} ${moveReps} times !`);
+  if (hasFlair) {
+    console.log("I do it with flair!");
+  }
+}
+
+let danceMoves: [string, number, boolean][] = [
+  ["chicken beak", 4, false],
+  ["wing flap", 4, false],
+  ["tail feather shake", 4, false],
+  ["clap", 4, false],
+  ["chicken beak", 4, true],
+  ["wing flap", 4, true],
+  ["tail feather shake", 4, true],
+  ["clap", 4, true],
+];
+
+danceMoves.forEach((move) => performDanceMove(...move));
+```
