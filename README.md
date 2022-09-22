@@ -453,3 +453,41 @@ const ordersArrayTS: [Pet, number][] = [
 
 ordersArrayTS.push([Pet.Jerboa, 3]);
 ```
+
+## 15 - CUSTOM TYPES: String Enums vs. Numeric Enums
+
+STEP:
+
+* You will now revisit the pet shop example. But this time, you will use string enums instead of numeric enums. Create a string enum named Pet, whose possible values are Pet.Hamster, Pet.Rat, Pet.Chinchilla, and Pet.Tarantula. (List them in this order.) Assign values according to the convention mentioned above, where the values are capitalized forms of the variable name: enum Example { variable = 'VARIABLE'};.
+* Create the type-safe variable petOnSaleTS and assign to it the value Pet.Chinchilla. Make sure to explicitly include the correct type annotation for petOnSaleTS.
+* As before, ordersArray is a list of orders to process, in the format [<pet name string>, <number ordered>]. This is not type safe. Create the type safe version of this array, naming it ordersArrayTS. Pet names should be replaced by corresponding enum values. The number ordered should stay the same. Include the type annotation for ordersArrayTS as well.
+* As discussed above, string enums are very particular about the form their values are written in. Even though you wrote Hamster = 'HAMSTER' in the enum Pet statement, you cannot use 'HAMSTER' as the enum value. You must use Pet.Hamster instead. Demonstrate this fact by adding the code ordersArrayTS.push(['HAMSTER', 1]); and clicking “Run”. Then, run tsc in the terminal to make sure TypeScript does not allow this.
+
+```ts
+let petOnSale = "chinchilla";
+let ordersArray = [
+  ["rat", 2],
+  ["chinchilla", 1],
+  ["hamster", 2],
+  ["chinchilla", 50],
+];
+
+// Write your code below:
+enum Pet {
+  Hamster = "HAMSTER",
+  Rat = "RAT",
+  Chinchilla = "CHINCHILLA",
+  Tarantula = "TARANTULA",
+}
+
+const petOnSaleTS: Pet = Pet.Chinchilla;
+
+const ordersArrayTS: [Pet, number][] = [
+  [Pet.Rat, 2],
+  [Pet.Chinchilla, 1],
+  [Pet.Hamster, 2],
+  [Pet.Chinchilla, 50],
+];
+
+ordersArrayTS.push(["HAMSTER", 1]);
+```
