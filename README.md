@@ -572,3 +572,104 @@ type Coord = [number, number, string, number, number, string];
 let codecademyCoordinates: Coord = [40, 43.2, "N", 73, 59.8, "W"];
 let bermudaTCoordinates: Coord = [25, 0, "N", 71, 0, "W"];
 ```
+
+## 18 - CUSTOM TYPES: Function Types
+
+STEP:
+
+* First, try to understand what’s been written in the code editor. We have defined several functions representing math operations. The function mathTutor() is meant to take one of these function names as an argument: the functions are used as callbacks. Try it out by adding the code mathTutor(multiply) and clicking the “Run” button. Finally, see if it gives you the expected result by running tsc and then node index.js in the terminal.
+* Why do we need to bother with function types at all? Well, you can easily demonstrate that mathTutor() does not work well with some callbacks. What if a co-worker accidentally used the callback wrongAdd(), which returns a string rather than a number? Find out by adding the code mathTutor(wrongAdd), then run the program as before.
+* Using wrongAdd() as the callback gave strange results, because mathTutor() attempted to add a string and a number. Luckily, function types can help prevent this kind of problem. Create a type alias called OperatorFunction which has a function type compatible with add() through divide(), but not compatible with wrongAdd(). Then, write a type annotation for mathTutor()‘s argument using OperatorFunction.
+* Finally, make sure that TypeScript throws errors when it sees mathTutor(wrongAdd). To do this, transpile and run the program as before.
+
+```ts
+// Math Operations
+// function add(a, b) {
+//   return a + b;
+// }
+// function subtract(a, b) {
+//   return a - b;
+// }
+// function multiply(a, b) {
+//   return a * b;
+// }
+// function divide(a, b) {
+//   return a / b;
+// }
+// function wrongAdd(a, b) {
+//   return a + b + "";
+// }
+
+// Add your function type below:
+
+// Math Tutor Function That Accepts a Callback
+// function mathTutor(operationCallback) {
+//   console.log("Let's learn how to", operationCallback.name, "!");
+//   let value25 = operationCallback(2, 5);
+//   console.log(
+//     "When we",
+//     operationCallback.name,
+//     "2 and 5, we get",
+//     value25,
+//     "."
+//   );
+//   console.log(
+//     "When we",
+//     operationCallback.name,
+//     value25,
+//     "and 7, we get",
+//     operationCallback(value25, 7),
+//     "."
+//   );
+//   console.log("Now fill out this worksheet.");
+// }
+
+// Call your functions below:
+
+// ---
+
+// Math Operations
+function add(a, b) {
+  return a + b;
+}
+function subtract(a, b) {
+  return a - b;
+}
+function multiply(a, b) {
+  return a * b;
+}
+function divide(a, b) {
+  return a / b;
+}
+function wrongAdd(a, b) {
+  return a + b + "";
+}
+
+// Add your function type below:
+type OperatorFunction = (arg0: number, arg1: number) => number;
+
+// Math Tutor Function That Accepts a Callback
+function mathTutor(operationCallback: OperatorFunction) {
+  console.log("Let's learn how to", operationCallback.name, "!");
+  let value25 = operationCallback(2, 5);
+  console.log(
+    "When we",
+    operationCallback.name,
+    "2 and 5, we get",
+    value25,
+    "."
+  );
+  console.log(
+    "When we",
+    operationCallback.name,
+    value25,
+    "and 7, we get",
+    operationCallback(value25, 7),
+    "."
+  );
+  console.log("Now fill out this worksheet.");
+}
+
+// Call your functions below:
+mathTutor(wrongAdd);
+```
