@@ -557,3 +557,18 @@ let birthdayBabies: {
 
 birthdayBabies.forEach(sayHappyBirthdayWithObject);
 ```
+  
+## 17 - CUSTOM TYPES: Type Aliases
+
+STEP:
+
+* In the code editor, you should see something familiar. This code was the “improved” version of the navigation example in a previous lesson. Here, we can improve it even more by replacing a long, awkward type annotation with a short, supple type alias. First, create the type alias Coord to stand for the coordinate tuple type. It should be of the same type as codecademyCoordinates and bermudaTCoordinates.
+* Now, replace the old, long type annotations for codecademyCoordinates and bermudaTCoordinates with annotations that use your new type alias.
+
+```ts
+// Add your type alias below:
+type Coord = [number, number, string, number, number, string];
+
+let codecademyCoordinates: Coord = [40, 43.2, "N", 73, 59.8, "W"];
+let bermudaTCoordinates: Coord = [25, 0, "N", 71, 0, "W"];
+```
