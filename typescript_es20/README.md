@@ -1,4 +1,4 @@
-# 20 - CUSTOM TYPES: Generic Types
+# 20 - CUSTOM TYPES: Generic Functions
 
 Use the function getFilledArray<T>() to assign values to the variables stringArray, numberArray, personArray, and coordinateArray.
 
