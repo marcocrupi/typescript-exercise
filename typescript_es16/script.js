@@ -1,23 +1,20 @@
-var petOnSale = "chinchilla";
-var ordersArray = [
-    ["rat", 2],
-    ["chinchilla", 1],
-    ["hamster", 2],
-    ["chinchilla", 50],
+function sayHappyBirthdayWithObject(personObject) {
+    var output = "";
+    output += "Happy Birthday " + personObject.name + "! ";
+    output += "You are now " + personObject.age + " years old! ";
+    output +=
+        "Your birthday wish was to receive " +
+            personObject.giftWish +
+            ". And guess what? You will ";
+    if (!personObject.success) {
+        output += "not ";
+    }
+    output += "receive it! \n";
+    console.log(output);
+}
+var birthdayBabies = [
+    { name: "Liam", age: 0, giftWish: "karate skills", success: false },
+    { name: "Olivia", age: 0, giftWish: "a bright future", success: true },
+    { name: "Ava", age: 0, giftWish: "$0.25", success: true },
 ];
-// Write your code below:
-var Pet;
-(function (Pet) {
-    Pet["Hamster"] = "HAMSTER";
-    Pet["Rat"] = "RAT";
-    Pet["Chinchilla"] = "CHINCHILLA";
-    Pet["Tarantula"] = "TARANTULA";
-})(Pet || (Pet = {}));
-var petOnSaleTS = Pet.Chinchilla;
-var ordersArrayTS = [
-    [Pet.Rat, 2],
-    [Pet.Chinchilla, 1],
-    [Pet.Hamster, 2],
-    [Pet.Chinchilla, 50],
-];
-ordersArrayTS.push(["HAMSTER", 1]);
+birthdayBabies.forEach(sayHappyBirthdayWithObject);
