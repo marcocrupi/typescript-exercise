@@ -491,3 +491,69 @@ const ordersArrayTS: [Pet, number][] = [
 
 ordersArrayTS.push(["HAMSTER", 1]);
 ```
+  
+## 16 - CUSTOM TYPES: Object Types
+
+STEP:
+
+* When we write functions, we like to give arguments explanatory names, which help the programmer using the function. For example, the arguments in function sayHappyBirthday(name, age) suggest that sayHappyBirthday('Cody', 10) will be valid input. However, sometimes you will encounter code where data is passed into a function by using an object, as with sayHappyBirthdayWithObject() in the code editor. The problem is, sayHappyBirthdayWithObject(personObject) is not very explanatory. Here, TypeScript can help us specify the exact properties that personObject should contain for the function to work. Add a type annotation to the personObject parameter that will ensure that the function will always receive an object with the required properties.
+* The code editor defines the variable birthdayBabies without a type annotation. Please add in the correct type annotation yourself.
+
+```ts
+// function sayHappyBirthdayWithObject(personObject){
+//   let output ='';
+//   output += 'Happy Birthday '
+//          + personObject.name + '! ';
+//   output += 'You are now ' 
+//          + personObject.age + ' years old! ';
+//   output += 'Your birthday wish was to receive ' 
+//          + personObject.giftWish 
+//          + '. And guess what? You will ';
+//   if (!personObject.success){
+//     output += 'not ';
+//   }
+//   output += 'receive it! \n';
+//   console.log(output);
+// }
+
+// let birthdayBabies = [
+//   {name: 'Liam', age: 0, giftWish: 'karate skills', success: false}, 
+//   {name: 'Olivia', age: 0, giftWish: 'a bright future', success:true}, 
+//   {name: 'Ava', age: 0, giftWish: '$0.25', success:true}
+// ]; 
+
+// birthdayBabies.forEach(sayHappyBirthdayWithObject);
+
+function sayHappyBirthdayWithObject(personObject: {
+  name: string;
+  age: number;
+  giftWish: string;
+  success: boolean;
+}) {
+  let output = "";
+  output += "Happy Birthday " + personObject.name + "! ";
+  output += "You are now " + personObject.age + " years old! ";
+  output +=
+    "Your birthday wish was to receive " +
+    personObject.giftWish +
+    ". And guess what? You will ";
+  if (!personObject.success) {
+    output += "not ";
+  }
+  output += "receive it! \n";
+  console.log(output);
+}
+
+let birthdayBabies: {
+  name: string;
+  age: number;
+  giftWish: string;
+  success: boolean;
+}[] = [
+  { name: "Liam", age: 0, giftWish: "karate skills", success: false },
+  { name: "Olivia", age: 0, giftWish: "a bright future", success: true },
+  { name: "Ava", age: 0, giftWish: "$0.25", success: true },
+];
+
+birthdayBabies.forEach(sayHappyBirthdayWithObject);
+```
