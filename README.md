@@ -824,3 +824,53 @@ function createUser() {
 
 let userData: User | string = createUser();
 ```
+
+## 24 - UNION TYPES: Unions and Arrays
+
+Inspect the program in the editor. This program has a function that takes home addresses and their respective prices, formats them, then returns them. If you hover over the listings parameter in formatListings(), the type of listings is inferred as any. Let’s type this parameter.
+
+Look at the definition of formatListings(), then define a union array type on the listings parameter.
+
+```ts
+// function formatListings(listings) {
+//   return listings.map((listing) => {
+//     if (typeof listing === "string") {
+//       return listing.toUpperCase();
+//     }
+
+//     if (typeof listing === "number") {
+//       return `$${listing.toLocaleString()}`;
+//     }
+//   });
+// }
+
+// const result = formatListings([
+//   "123 Main St",
+//   226800,
+//   "580 Broadway Apt 4a",
+//   337900,
+// ]);
+
+// console.log(result);
+
+function formatListings(listings: (string | number)[]) {
+  return listings.map((listing) => {
+    if (typeof listing === "string") {
+      return listing.toUpperCase();
+    }
+
+    if (typeof listing === "number") {
+      return `$${listing.toLocaleString()}`;
+    }
+  });
+}
+
+const result = formatListings([
+  "123 Main St",
+  226800,
+  "580 Broadway Apt 4a",
+  337900,
+]);
+
+console.log(result);
+```
