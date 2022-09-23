@@ -755,3 +755,32 @@ function printNumsAndStrings(statement: string | number) {
 printNumsAndStrings("hello!");
 printNumsAndStrings(3);
 ```
+  
+## 22 - UNION TYPES: Type Narrowing
+
+STEP
+
+* We’ve begun to write a function named formatValue() that should take in strings or numbers, then format them. Write a type guard that checks if the typeof value is a 'string'. If it is, then console.log() the string as a lowercase string with .toLowerCase().
+* Inside the body of formatValue(), write another type guard that checks if value is a 'number'. If it is, then console.log() the number with two zeros after the decimal with .toFixed(2).
+
+```ts
+// function formatValue(value: string | number) {
+// Write your code here
+// }
+
+// formatValue("Hiya");
+// formatValue(42);
+
+function formatValue(value: string | number) {
+  // Write your code here
+  if (typeof value === "string") {
+    return console.log(value.toLowerCase());
+  }
+  if (typeof value === "number") {
+    return console.log(value.toFixed(2));
+  }
+}
+
+formatValue("Hiya");
+formatValue(42);
+```
