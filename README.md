@@ -1194,3 +1194,45 @@ const Desktop = new DesktopDirectory();
 Desktop.addFile("lesson-notes.txt");
 Desktop.showPreview("lesson-notes.txt");
 ```
+  
+# 33 - ADVANCED OBJECT TYPES: Deep Types
+
+STEP: 
+
+* In the code editor, we’re going to continue working on our operating system. This time, we added a config property to the DesktopDirectory class. The data in config will be needed for every Directory, so let’s add it to the Directory interface. Inside the Directory interface, add a config type member that matches the config property of DesktopDirectory. You should write a type that has a nested default object.
+* In the terminal run tsc to compile your code.
+* Run node index.js in the terminal to see the output. You should see output about the configuration of DesktopDirectory.
+
+```ts
+interface Directory {
+  addFile: (name: string) => void;
+  // Define a config type member here
+  config: {
+    default: {
+      encoding: string;
+      permissions: string;
+    };
+  };
+}
+
+class DesktopDirectory implements Directory {
+  config = {
+    default: {
+      encoding: "utf-8",
+      permissions: "drw-rw-rw-",
+    },
+  };
+
+  addFile(name: string) {
+    console.log(`Adding file: ${name}`);
+  }
+
+  showPreview(name: string) {
+    console.log(`Opening preview of file: ${name}`);
+  }
+}
+
+const Desktop = new DesktopDirectory();
+
+console.log(Desktop.config);
+```
