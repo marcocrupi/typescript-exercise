@@ -1099,3 +1099,67 @@ function recycle(trash: Metal | Glass) {
 
 console.log(recycle(iron));
 ```
+  
+# 30 - TYPE NARROWING: Narrowing After a Type Guard
+
+In the editor, we’ve created a program that recycles variables of type Metal and Glass. The goal of the program is to sort out the trash of type Metal before the trash of type Glass.
+
+Right now, the recycle() function calls the .melt() method on each piece of trash. Let’s give the recycle() function the ability to sort out pieces of trash of type Metal.
+
+In the body of the recycle() function, write a type guard that checks if there is a .magnetize() method on the trash parameter. If there is, then return trash.magnetize(). Your type guard should appear above the trash.melt() call.
+
+```ts
+type Metal = {
+  magnetize: () => string;
+};
+
+type Glass = {
+  melt: () => string;
+};
+
+const iron = {
+  magnetize: () => "Electromagnet activated",
+};
+
+const bottle = {
+  melt: () => "Furnace set to 2,700 degrees",
+};
+
+function recycle(trash: Metal | Glass) {
+  // Add your code below:
+  if ("magnetize" in trash) {
+    return trash.magnetize();
+  }
+
+  return trash.melt();
+}
+
+console.log(recycle(iron));
+```
+  
+# 31 - ADVANCED OBJECT TYPES: Interfaces and Types
+
+STEP: 
+
+* In the code editor, there’s a program that will show progress on a monthly running goal. This month’s running goal is 50 miles (~80km). The updateRunGoal() takes in a run argument and displays stats about this month’s running goal. This program works right now, but we need to add a type to run since run is of type any at the moment. At the top of index.ts, declare an interface named Run with one type member: miles: number;
+* Apply the Run interface to the run parameter.
+* In the terminal run tsc to compile your code.
+* Finally, run node index.js in the terminal to see the output. You should see some stats about a monthly running goal.
+
+```ts
+// Write an interface here
+interface Run {
+  miles: number;
+}
+
+function updateRunGoal(run: Run) {
+  console.log(`
+Miles left:       ${50 - run.miles}
+Percent of goal:  ${(run.miles / 50) * 100}% complete
+  `);
+}
+
+updateRunGoal({
+  miles: 5,
+});
+```
