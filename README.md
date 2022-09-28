@@ -1024,7 +1024,7 @@ function move(pet: Cat | Fish) {
 console.log(move(siameseCat));
 ```
 
-# 29 - TYPE NARROWING: Narrowing with else
+## 29 - TYPE NARROWING: Narrowing with else
 
 STEP:
 
@@ -1063,7 +1063,7 @@ function prepareEntree(entree: Pasta | Meat) {
 console.log(prepareEntree(fettuccine));
 ```
   
-# 30 - TYPE NARROWING: Narrowing After a Type Guard
+## 30 - TYPE NARROWING: Narrowing After a Type Guard
 
 In the editor, we’ve created a program that recycles variables of type Metal and Glass. The goal of the program is to sort out the trash of type Metal before the trash of type Glass.
 
@@ -1100,44 +1100,7 @@ function recycle(trash: Metal | Glass) {
 console.log(recycle(iron));
 ```
   
-# 30 - TYPE NARROWING: Narrowing After a Type Guard
-
-In the editor, we’ve created a program that recycles variables of type Metal and Glass. The goal of the program is to sort out the trash of type Metal before the trash of type Glass.
-
-Right now, the recycle() function calls the .melt() method on each piece of trash. Let’s give the recycle() function the ability to sort out pieces of trash of type Metal.
-
-In the body of the recycle() function, write a type guard that checks if there is a .magnetize() method on the trash parameter. If there is, then return trash.magnetize(). Your type guard should appear above the trash.melt() call.
-
-```ts
-type Metal = {
-  magnetize: () => string;
-};
-
-type Glass = {
-  melt: () => string;
-};
-
-const iron = {
-  magnetize: () => "Electromagnet activated",
-};
-
-const bottle = {
-  melt: () => "Furnace set to 2,700 degrees",
-};
-
-function recycle(trash: Metal | Glass) {
-  // Add your code below:
-  if ("magnetize" in trash) {
-    return trash.magnetize();
-  }
-
-  return trash.melt();
-}
-
-console.log(recycle(iron));
-```
-  
-# 31 - ADVANCED OBJECT TYPES: Interfaces and Types
+## 31 - ADVANCED OBJECT TYPES: Interfaces and Types
 
 STEP: 
 
@@ -1164,7 +1127,7 @@ updateRunGoal({
 });
 ```
   
-# 32 - ADVANCED OBJECT TYPES: Interfaces and Classes
+## 32 - ADVANCED OBJECT TYPES: Interfaces and Classes
 
 STEP: 
 
@@ -1195,7 +1158,7 @@ Desktop.addFile("lesson-notes.txt");
 Desktop.showPreview("lesson-notes.txt");
 ```
   
-# 33 - ADVANCED OBJECT TYPES: Deep Types
+## 33 - ADVANCED OBJECT TYPES: Deep Types
 
 STEP: 
 
@@ -1237,7 +1200,7 @@ const Desktop = new DesktopDirectory();
 console.log(Desktop.config);
 ```
 
-# 34 - ADVANCED OBJECT TYPES: Deep Types
+## 34 - ADVANCED OBJECT TYPES: Deep Types
 
 STEP: 
 
@@ -1315,7 +1278,7 @@ const Desktop = new DesktopDirectory();
 console.log(Desktop.config);
 ```
 
-# 35 - ADVANCED OBJECT TYPES: Extending Interfaces
+## 35 - ADVANCED OBJECT TYPES: Extending Interfaces
 
 STEP: 
 
