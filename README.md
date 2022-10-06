@@ -1391,3 +1391,15 @@ getUserName({
   username: "mountainClimber",
 });
 ```
+  
+## 38 - TypeScript Generic Functions
+
+Creare una funzione che restituisca array riempito con un certo valore usando TypeScript e le sue generic function.
+Impostare un tsconfig che supporti ES6 e permetta di compilare il codice di TypeScript lanciando solo il comando "tsc" senza specificare il nome del file.
+  
+```ts
+function getFilledArray<T>(value: T, n: number): T[] {
+  return Array(n).fill(value);
+}
+console.log(getFilledArray<string>("cheese", 3));
+```
